@@ -1,0 +1,70 @@
+<div class="container-fluid">
+        <div class="btn-container">
+            <button type="button" class="btn1 third" (click)="AddNewEmployeeBtn()">Add New Employee</button>
+        </div> 
+    <div class="row bg-light" *ngIf="newEmployeeClicked">
+        <div class="col-12" class="layout">
+            <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="Position" class="form-label">Position</label>
+                  <select class="form-select" aria-label="Default select example" id="position" name="position" [(ngModel)]="model.position">
+                    <option selected>Choose the Position</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Analyst">Analyst</option>
+                    <option value="Manager">Manager</option>
+                  </select>
+                  <!-- <input type="text" class="form-control" id="position" name="position"  > -->
+                </div>
+                <button type="submit" class="btn btn-success btn-lg" (click)="AddEmployee()">Save</button>
+              </form>
+        </div>
+       
+    </div>
+   <div class="row mt-4">
+
+    <div class="d-flex justify-content-between bg-light text-dark col-12">
+        <div class="p-2 bd-highlight col-5"><h6>Name</h6></div>
+        <div class="p-2 bd-highlight col-5"><h6>Position</h6></div>
+        <div class="p-2 bd-highlight col-2"><h6>Action</h6></div>
+    </div>
+    <div class="d-flex justify-content-between col-12" *ngFor="let employee of employees; let i = index">
+        <div class="p-2 bd-highlight col-5">{{employee.name}}</div>
+        <div class="p-2 bd-highlight col-5">{{employee.position}}</div>
+        <div class="p-2 bd-highlight col-2">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-primary" type="button"  (click)="editEmployee(i)" routerLink="/editEmployee">Edit</button>
+                </div>
+                <div class="col-6">
+                 <button class="btn btn-danger" type="button" (click)="deleteEmployee(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+   
+   </div>
+
+</div>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="AddEmployeeTitleContainer">
+            <div class="addEmployeeTitleContainer">
+                <div>
+                    Add Employee Details
+                </div>   
+                <div class="addEmployeeBtnContainer">
+                    <div class="addNewEmployeeBtn" (click)="AddNewEmployeeBtn()" > Add</div>
+                </div> 
+                <div *ngIf="newEmployeeClicked">
+                    <div class="form"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

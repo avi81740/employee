@@ -1,0 +1,23 @@
+<div class="container">
+<div class="row bg-light mt-5 p-4">
+    <div class="col-12 text-center pt-1"><h6 class="display-4" style="font-size: 20px;">Edit Employee</h6></div>   
+    <div class="col-12 p-4" class="layout">
+        <form class="p-5">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model2.name" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="Position" class="form-label">Position</label>
+              <select class="form-select" aria-label="Default select example" id="position" name="position" [(ngModel)]="model2.position">
+                <option selected>Choose the Position</option>
+                <option value="Developer">Developer</option>
+                <option value="Analyst">Analyst</option>
+                <option value="Manager">Manager</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-success btn-lg" (click)="updateEmployee()">Update</button>
+          </form>
+    </div>  
+</div>
+</div>
